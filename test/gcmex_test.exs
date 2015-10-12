@@ -1,4 +1,4 @@
-defmodule Bakisto.GCMTest do
+defmodule GCMTest do
   use ExUnit.Case
 
   alias GcmEx
