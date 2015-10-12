@@ -1,8 +1,10 @@
 defmodule GcmEx.Message do
   @derive [Poison.Encoder]
 
-  @doc """
-  Please read the GCM documentation
+  @moduledoc """
+  Message payload
+
+  ## Reference
   https://developers.google.com/cloud-messaging/http-server-ref#downstream-http-messages-json
   """
   defstruct [
@@ -23,4 +25,6 @@ defmodule GcmEx.Message do
     :data,
     :notification
   ]
+
+  @type t :: %__MODULE__{}
 end

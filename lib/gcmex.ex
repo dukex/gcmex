@@ -3,6 +3,29 @@ defmodule GcmEx do
 
   alias GcmEx.Message
 
+  @doc """
+  Send message to target(s)
+
+  To see more information about the acceptable fields see
+
+  https://developers.google.com/cloud-messaging/http-server-ref#send-downstream
+
+  ## Examples
+      target = ["APA91bHun4MxP5egoKMwt2KZFBaFUH-1RYqx..."]
+      message = %GcmEx.Message{
+        to: target,
+        notification: %GcmEx.Notification{
+          title: "Germany x Brazil",
+          body: "Goool",
+        },
+        data: %{
+          score: "7x1",
+          time: "79'"
+        },
+        priority: "high"
+      }
+      GcmEx.send(message)
+  """
   def send(message = %Message{}, http \\ HTTPoison) do
     post(http, "/gcm/send", Poison.encode!(message), Application.get_env(:gcmex, :api_key))
   end

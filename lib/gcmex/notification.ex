@@ -1,5 +1,12 @@
 defmodule GcmEx.Notification do
   @derive [Poison.Encoder]
+
+  @moduledoc """
+  Notification payload
+
+  ## Reference
+  https://developers.google.com/cloud-messaging/http-server-ref#notification-payload-support
+  """
   defstruct [
     :title,
     :body,
@@ -14,4 +21,6 @@ defmodule GcmEx.Notification do
     :title_loc_key,
     :title_loc_args
   ]
+
+  @type t :: %__MODULE__{}
 end
